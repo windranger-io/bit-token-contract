@@ -21,7 +21,7 @@ Messages for commit and merge operations enter into the browsable log of project
 Consistency helps readers tremendously, please follow Conventional Commits
 https://www.conventionalcommits.org/en/v1.0.0/
 
-### Basic Sample Hardhat Project
+### Sample Hardhat Project
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
 
@@ -31,8 +31,24 @@ Try running some of the following tasks:
 npx hardhat accounts
 npx hardhat compile
 npx hardhat clean
-npx hardhat test
 npx hardhat node
-node scripts/sample-script.js
 npx hardhat help
+```
+
+#### Tests
+Target to run all the mocha tests found in the ```/test``` directory, transpiled as necessary.
+```shell
+npx hardhat test
+```
+
+Run a single test (or a regex of tests), then pass in as an argument.
+```shell
+ npx hardhat test .\test\sample.test.ts
+```
+
+
+#### Scripts
+The TypeScript transpiler will automatically as needed, execute through HardHat for the instantiated environment
+```shell
+npx hardhat run .\scripts\sample-script.ts
 ```
