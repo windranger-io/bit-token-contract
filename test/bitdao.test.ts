@@ -1,3 +1,8 @@
+// Start - Support Mocha level debugging
+import "hardhat"
+import "@nomiclabs/hardhat-ethers";
+// End - Support Mocha level debugging
+
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
