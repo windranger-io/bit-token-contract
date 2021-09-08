@@ -6,9 +6,6 @@
   "directories": {
     "test": "test"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bitdao-io/bitdao-token-contract.git"
@@ -16,6 +13,12 @@
   "keywords": [],
   "author": "",
   "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "format": "prettier ./**/*.ts --write",
+    "test": "npm run test-unit && npm run test-integration",
+    "test-unit": "mocha --exit --recursive --require ts-node/register 'test-unit/**/*.test.ts'"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
@@ -24,10 +27,16 @@
     "@types/chai": "^4.2.21",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.7.10",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
     "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.0.0",
     "hardhat": "^2.6.2",
+    "prettier": "^2.3.2",
     "ts-node": "^10.2.1",
     "typechain": "^5.1.2",
     "typescript": "^4.4.2"
