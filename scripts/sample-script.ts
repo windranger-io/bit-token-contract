@@ -1,19 +1,19 @@
-import { run, ethers } from "hardhat";
+import {run, ethers} from 'hardhat'
 
 async function main() {
-  await run("compile");
+  await run('compile')
 
-  const accounts = await ethers.getSigners();
+  const accounts = await ethers.getSigners()
 
   console.log(
-    "Accounts:",
+    'Accounts:',
     accounts.map((a) => a.address)
-  );
+  )
 }
 
 main()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+    console.error(error)
+    process.exit(1)
+  })
