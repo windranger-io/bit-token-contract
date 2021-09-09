@@ -52,3 +52,12 @@ The TypeScript transpiler will automatically as needed, execute through HardHat 
 ```shell
 npx hardhat run .\scripts\sample-script.ts
 ```
+
+### Logging
+Logging is performed with Bunyan
+
+#### Bunyan CLI
+To have the JSON logging output into a more human-readable form, pipe the stdout to the Bunyan CLI tool.
+```shell
+npx hardhat accounts | npx bunyan
+```

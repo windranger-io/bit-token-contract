@@ -1,11 +1,12 @@
 import {run, ethers} from 'hardhat'
+import {log} from '../config/logging'
 
 async function main() {
   await run('compile')
 
   const accounts = await ethers.getSigners()
 
-  console.log(
+  log.info(
     'Accounts:',
     accounts.map((a) => a.address)
   )
@@ -14,6 +15,6 @@ async function main() {
 main()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.error(error)
+    log.error(error)
     process.exit(1)
   })
