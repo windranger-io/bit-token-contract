@@ -61,3 +61,7 @@ To have the JSON logging output into a more human-readable form, pipe the stdout
 ```shell
 npx hardhat accounts | npx bunyan
 ```
+
+### Style Guide
+Follow the Google TypeScript style guide, as they're sensible.
+https://google.github.io/styleguide/tsguide.html
