@@ -3,12 +3,16 @@ import 'hardhat'
 import '@nomiclabs/hardhat-ethers'
 // End - Support direct Mocha run & debug
 
-import {expect} from 'chai'
+import chai, {expect} from 'chai'
 import {ethers} from 'hardhat'
 import {before} from 'mocha'
+import {solidity} from 'ethereum-waffle'
 import {BitDAO} from '../typechain'
 
+chai.use(solidity)
+
 const TEN_OCTILLIAN = 10000000000000000000000000000n
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
 describe('BitDAO token contract', async () => {
   before(async () => {
@@ -30,6 +34,18 @@ describe('BitDAO token contract', async () => {
 
   it('contract creator gets 10 Octillian (1e28 / 1e10 * 1e18) BITs', async () => {
     expect(await dao.balanceOf(admin)).to.equal(TEN_OCTILLIAN)
+  })
+
+  it('minting BIT not allowed', async () => {
+    expect(dao.transferFrom(ZERO_ADDRESS, admin, 5)).to.be.revertedWith(
+      'ERC20: transfer from the zero address'
+    )
+  })
+
+  it('burning BIT not allowed', async () => {
+    expect(dao.transferFrom(admin, ZERO_ADDRESS, 5)).to.be.revertedWith(
+      'ERC20: transfer to the zero address'
+    )
   })
 
   describe('delegate', async () => {
@@ -72,8 +88,6 @@ describe('BitDAO token contract', async () => {
     })
   })
 
-  //TODO test minting (might not work)
-  //TODO test burning (might not work)
   //TODO verify emitted events
 
   let admin: string
