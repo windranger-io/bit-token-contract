@@ -16,8 +16,9 @@
   "scripts": {
     "build": "hardhat compile",
     "clean": "hardhat clean",
-    "lint": "eslint . --ext .ts",
     "format": "prettier ./**/*.ts --write",
+    "lint": "eslint . --ext .ts",
+    "prepare": "husky install",
     "test": "mocha --exit --recursive --require ts-node/register 'test/**/*.test.ts'"
   },
   "devDependencies": {
@@ -47,11 +48,6 @@
   },
   "dependencies": {
     "bunyan": "^1.8.15"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint-staged"
-    }
   },
   "lint-staged": {
     "*.ts": [
