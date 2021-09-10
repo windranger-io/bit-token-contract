@@ -52,7 +52,7 @@ describe("BitDAO token contract", async () => {
     beforeEach(async () => {
       admin = await signer(0);
       delegateOne = await signer(1);
-      delegateTwo = await signer(2);
+      delegateTwo = await signer(2);   
       dao = await bitDao(admin);
     });
 
