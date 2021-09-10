@@ -14,6 +14,8 @@
   "author": "",
   "license": "Apache-2.0",
   "scripts": {
+    "build": "hardhat compile",
+    "clean": "hardhat clean",
     "lint": "eslint . --ext .ts",
     "format": "prettier ./**/*.ts --write",
     "test": "npm run test-unit && npm run test-integration",

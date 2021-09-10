@@ -5,26 +5,37 @@ import '@nomiclabs/hardhat-ethers'
 
 import {expect} from 'chai'
 import {ethers} from 'hardhat'
+import {before} from 'mocha'
+import {BitDAO} from '../typechain'
 
-describe('BitDAO', async () => {
-  it('Name should be BitDAO', async () => {
-    const adminAccount = await signer()
-    const BitDAO = await ethers.getContractFactory('BitDAO')
-    const dao = await BitDAO.deploy(adminAccount)
-    await dao.deployed()
+describe('BitDAO token contract', async () => {
+  before(async () => {
+    adminAccount = await signer()
+    dao = await bitDao()
+  })
 
+  it('name is BitDAO', async () => {
     expect(await dao.name()).to.equal('BitDAO')
   })
 
-  it('Zero votes for the admin', async () => {
-    const adminAccount = await signer()
-    const BitDAO = await ethers.getContractFactory('BitDAO')
-    const dao = await BitDAO.deploy(adminAccount)
-    await dao.deployed()
+  it('symbol is BIT', async () => {
+    expect(await dao.symbol()).to.equal('BIT')
+  })
 
+  it('Zero votes for the admin', async () => {
     expect(await dao.getCurrentVotes(adminAccount)).to.equal(0)
   })
+
+  let adminAccount: string
+  let dao: BitDAO
 })
+
+async function bitDao(): Promise<BitDAO> {
+  const adminAccount = await signer()
+  const factory = await ethers.getContractFactory('BitDAO')
+  const dao = <BitDAO>await factory.deploy(adminAccount)
+  return dao.deployed()
+}
 
 async function signer(): Promise<string> {
   const signers = await ethers.getSigners()
