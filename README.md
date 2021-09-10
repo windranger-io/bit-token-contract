@@ -81,3 +81,10 @@ npm run build
 npm run test
 ```
 
+#### Husky Git Commit Hooks
+To enable Husky commit hooks to trigger the lint-staged behaviour of formatting and linting the staged files prior 
+before committing, prepare your repo with `prepare`.
+
+```shell
+npm run prepare
+```
