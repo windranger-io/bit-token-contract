@@ -18,8 +18,7 @@
     "clean": "hardhat clean",
     "lint": "eslint . --ext .ts",
     "format": "prettier ./**/*.ts --write",
-    "test": "npm run test-unit && npm run test-integration",
-    "test-unit": "mocha --exit --recursive --require ts-node/register 'test-unit/**/*.test.ts'"
+    "test": "mocha --exit --recursive --require ts-node/register 'test/**/*.test.ts'"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
