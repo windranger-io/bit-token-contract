@@ -1,5 +1,9 @@
 {
-  "ignorePatterns": ["dist", "typechain"],
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "typechain"
+  ],
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
@@ -15,6 +19,6 @@
   "rules": {
     "no-console": 2,
     "prettier/prettier": 2,
-    "strict" : 2
+    "strict": 2
   }
 }
